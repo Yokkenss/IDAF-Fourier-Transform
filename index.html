@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doppler-Radar: Vom Signal zur Geschwindigkeit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+      </div>
+      <strong id="substitutionValue" class="sr-live">v = (16667 Hz · 0.0300 m) / 2 ≈ 250.0 m/s ≈ 900 km/h</strong>
+    </header>
+
+    <section class="dashboard">
+      <article class="card radar-card" aria-label="Radar-Szene">
+        <span id="directionBadge" class="sr-live">Annäherung</span>
+        <canvas id="radarCanvas" width="1100" height="310" aria-label="Radar sendet und empfängt Wellen"></canvas>
+      </article>
+
+      <aside class="card controls-card" aria-labelledby="controls-title">
+        <div class="section-heading compact">
+          <div>
+            <h2 id="controls-title">Parameter</h2>
+          </div>
+        </div>
+
+        <label class="control">
+          <span>
+            Geschwindigkeit
+            <strong><span id="speedLabel">900</span> km/h</strong>
+          </span>
+          <input id="speedInput" type="range" min="-1200" max="1200" step="10" value="900">
+        </label>
+
+        <label class="control">
+          <span>
+            Radarfrequenz
+            <strong><span id="frequencyLabel">10</span> GHz</strong>
+          </span>
+          <select id="frequencyInput">
+            <option value="5">5 GHz</option>
+            <option value="10" selected>10 GHz</option>
+            <option value="24">24 GHz</option>
+            <option value="77">77 GHz</option>
+          </select>
+        </label>
+
+        <label class="control">
+          <span>
+            Rauschpegel
+            <strong><span id="noiseLabel">0.15</span></strong>
+          </span>
+          <input id="noiseInput" type="range" min="0" max="1" step="0.01" value="0.15">
+        </label>
+
+        <label class="checkbox-row">
+          <input id="spectrumToggle" type="checkbox" checked>
+          <span>Fourier-Spektrum anzeigen</span>
+        </label>
+      </aside>
+    </section>
+
+    <section class="values-grid" aria-label="Live berechnete Werte">
+      <article class="value-card">
+        <span>f<sub>0</sub></span>
+        <strong id="f0Value">10 GHz</strong>
+      </article>
+      <article class="value-card">
+        <span>Wellenlänge λ</span>
+        <strong id="lambdaValue">0.0300 m</strong>
+      </article>
+      <article class="value-card">
+        <span>Geschwindigkeit</span>
+        <strong id="speedValue">250.0 m/s</strong>
+        <small id="speedKmhValue">900 km/h</small>
+      </article>
+      <article class="value-card">
+        <span>Doppler f<sub>D</sub></span>
+        <strong id="dopplerValue">16667 Hz</strong>
+        <small id="dopplerKhzValue">16.67 kHz</small>
+      </article>
+      <article class="value-card">
+        <span>Richtung</span>
+        <strong id="directionValue">Annäherung</strong>
+      </article>
+    </section>
+
+    <section class="graph-grid">
+      <article class="card graph-card">
+        <div class="section-heading compact">
+          <div>
+            <h2>Zeitsignal</h2>
+          </div>
+        </div>
+        <canvas id="timeCanvas" width="720" height="360" aria-label="Zeitsignal"></canvas>
+      </article>
+
+      <article class="card graph-card" id="spectrumCard">
+        <div class="section-heading compact">
+          <div>
+            <h2>Frequenzspektrum</h2>
+          </div>
+        </div>
+        <canvas id="spectrumCanvas" width="720" height="360" aria-label="Frequenzspektrum"></canvas>
+        <p id="spectrumMessage" class="caption hidden">
+          Ohne Fourier-Analyse ist die Doppler-Frequenz im Zeitsignal schwer erkennbar.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
