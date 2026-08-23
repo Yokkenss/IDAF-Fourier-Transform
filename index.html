@@ -14,6 +14,84 @@
       <strong id="substitutionValue" class="sr-live">v = (16667 Hz · 0.0300 m) / 2 ≈ 250.0 m/s ≈ 900 km/h</strong>
     </header>
 
+    <section class="physics-section" aria-labelledby="physics-title">
+      <h1 id="physics-title">Geschwindigkeit aus der Frequenzverschiebung</h1>
+      <p class="physics-lead">
+        Das Projekt zeigt ein monostatisches Dauerstrichradar. Das Radar sendet mit der Frequenz
+        <i>f</i><sub>0</sub>, empfängt die Reflexion am Flugzeug und bestimmt aus der Verschiebung
+        <i>f</i><sub>D</sub> die Geschwindigkeit in Blickrichtung. Die Wellenlänge ist
+        λ = <i>c</i>/<i>f</i><sub>0</sub> mit <i>c</i> = 3.00 · 10<sup>8</sup> m/s.
+      </p>
+
+      <math class="equation" display="block" aria-label="Doppler-Frequenz und Radialgeschwindigkeit">
+        <mrow>
+          <msub><mi>f</mi><mi mathvariant="normal">D</mi></msub>
+          <mo>≈</mo>
+          <mfrac><mrow><mn>2</mn><msub><mi>v</mi><mi>r</mi></msub></mrow><mi>λ</mi></mfrac>
+          <mo>=</mo>
+          <mfrac>
+            <mrow><mn>2</mn><msub><mi>f</mi><mn>0</mn></msub><msub><mi>v</mi><mi>r</mi></msub></mrow>
+            <mi>c</mi>
+          </mfrac>
+          <mspace width="1.2em"></mspace>
+          <mo>⇒</mo>
+          <mspace width="1.2em"></mspace>
+          <msub><mi>v</mi><mi>r</mi></msub>
+          <mo>=</mo>
+          <mfrac><mrow><msub><mi>f</mi><mi mathvariant="normal">D</mi></msub><mi>λ</mi></mrow><mn>2</mn></mfrac>
+        </mrow>
+      </math>
+
+      <p class="physics-text">
+        Der Faktor 2 entsteht, weil die Doppler-Verschiebung auf Hin- und Rückweg auftritt.
+        Die Näherung gilt für |<i>v</i><sub>r</sub>| ≪ <i>c</i>. Gemessen wird nur die radiale
+        Komponente: <i>f</i><sub>D</sub> &gt; 0 bedeutet hier Annäherung,
+        <i>f</i><sub>D</sub> &lt; 0 Entfernung.
+      </p>
+
+      <p class="physics-text">
+        Nach dem Mischen des Echos mit der Sendefrequenz bleibt das niederfrequente
+        Basisbandsignal, das im Diagramm „Zeitsignal“ dargestellt wird:
+      </p>
+
+      <math class="equation" display="block" aria-label="Basisbandsignal">
+        <mrow>
+          <msub><mi>s</mi><mi mathvariant="normal">BB</mi></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo>
+          <mo>≈</mo>
+          <mi>A</mi><mspace width="0.2em"></mspace><mi mathvariant="normal">cos</mi>
+          <mo stretchy="false">(</mo><mn>2</mn><mi mathvariant="normal">π</mi><msub><mi>f</mi><mi mathvariant="normal">D</mi></msub><mi>t</mi><mo>+</mo><mi>φ</mi><mo stretchy="false">)</mo>
+          <mo>+</mo><mi>n</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo>
+        </mrow>
+      </math>
+
+      <p class="physics-text">
+        Weil die Frequenz bei Rauschen im Zeitverlauf schwer abzulesen ist, wird das Signal mit
+        der Fourier-Transformation in den Frequenzraum überführt. Der Peak von
+        |<i>S</i>(<i>f</i>)| liegt bei <i>f</i><sub>D</sub>.
+      </p>
+
+      <math class="equation" display="block" aria-label="Fourier-Transformation des Basisbandsignals">
+        <mrow>
+          <mi>S</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo>
+          <mo>=</mo>
+          <msubsup><mo>∫</mo><mrow><mo>−</mo><mi>∞</mi></mrow><mi>∞</mi></msubsup>
+          <msub><mi>s</mi><mi mathvariant="normal">BB</mi></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo>
+          <msup><mi mathvariant="normal">e</mi><mrow><mo>−</mo><mi mathvariant="normal">i</mi><mn>2</mn><mi mathvariant="normal">π</mi><mi>f</mi><mi>t</mi></mrow></msup>
+          <mspace width="0.25em"></mspace><mi mathvariant="normal">d</mi><mi>t</mi>
+        </mrow>
+      </math>
+
+      <p class="current-calculation" aria-live="polite">
+        Aktuell:
+        <i>f</i><sub>D</sub> = <strong id="physicsDoppler">+16’667 Hz</strong>,
+        λ = <strong id="physicsLambda">0.0300 m</strong>
+        ⇒ <i>v</i><sub>r</sub> = <strong id="physicsResult">+250.0 m/s</strong>
+        = <strong id="physicsResultKmh">+900 km/h</strong>
+        (<span id="physicsDirection">Annäherung</span>).
+      </p>
+
+    </section>
+
     <section class="dashboard">
       <article class="card radar-card" aria-label="Radar-Szene">
         <span id="directionBadge" class="sr-live">Annäherung</span>
@@ -110,6 +188,7 @@
         </p>
       </article>
     </section>
+
   </main>
 
   <script src="script.js"></script>

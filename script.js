@@ -29,7 +29,12 @@ const els = {
   radarCanvas: document.getElementById("radarCanvas"),
   timeCanvas: document.getElementById("timeCanvas"),
   spectrumCanvas: document.getElementById("spectrumCanvas"),
-  spectrumMessage: document.getElementById("spectrumMessage")
+  spectrumMessage: document.getElementById("spectrumMessage"),
+  physicsDirection: document.getElementById("physicsDirection"),
+  physicsDoppler: document.getElementById("physicsDoppler"),
+  physicsLambda: document.getElementById("physicsLambda"),
+  physicsResult: document.getElementById("physicsResult"),
+  physicsResultKmh: document.getElementById("physicsResultKmh")
 };
 
 const sceneAssets = {
@@ -129,6 +134,12 @@ function updateLabels() {
   els.directionBadge.textContent = values.direction;
   els.substitutionValue.textContent =
     `v = (${formatSigned(values.dopplerHz, 0)} Hz · ${values.wavelength.toFixed(4)} m) / 2 ≈ ${formatSigned(values.speedMps, 1)} m/s ≈ ${formatSigned(state.speedKmh, 0)} km/h`;
+
+  els.physicsDirection.textContent = values.direction;
+  els.physicsDoppler.textContent = `${formatSigned(values.dopplerHz, 0)} Hz`;
+  els.physicsLambda.textContent = `${values.wavelength.toFixed(4)} m`;
+  els.physicsResult.textContent = `${formatSigned(values.speedMps, 1)} m/s`;
+  els.physicsResultKmh.textContent = `${formatSigned(state.speedKmh, 0)} km/h`;
 
   els.spectrumCanvas.classList.toggle("hidden", !state.showSpectrum);
   els.spectrumMessage.classList.toggle("hidden", state.showSpectrum);
