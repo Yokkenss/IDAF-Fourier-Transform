@@ -1012,3 +1012,112 @@ select:focus {
     font-size: 1.28rem;
   }
 }
+
+/* Schlichte Projekteinführung */
+.topbar {
+  margin-bottom: 0;
+}
+
+.physics-section {
+  margin: 0 0 22px;
+  padding: 30px 0 34px;
+  overflow: visible;
+  border: 0;
+  border-bottom: 1px solid #d7e0e5;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+}
+
+.physics-section > * {
+  width: 100%;
+  max-width: none;
+}
+
+.physics-section .project-label {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.physics-section h1 {
+  margin-bottom: 14px;
+  color: var(--navy);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.85rem, 3.4vw, 2.8rem);
+  font-weight: 720;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.physics-lead,
+.physics-text {
+  color: #4e606c;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.physics-lead {
+  margin-bottom: 18px;
+}
+
+.physics-text {
+  margin-bottom: 10px;
+}
+
+.equation {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 22px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  color: #102839;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  text-align: center;
+}
+
+.current-calculation {
+  margin-top: 26px;
+  margin-bottom: 0;
+  padding-top: 18px;
+  border-top: 1px solid #d7e0e5;
+  color: #263d4b;
+  font-size: clamp(1.12rem, 1.8vw, 1.45rem);
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+}
+
+.current-calculation strong {
+  color: var(--navy);
+  font-size: 1.04em;
+}
+
+.current-calculation #physicsDirection {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.physics-section .assumptions {
+  margin-top: 10px;
+  color: #7b8992;
+  font-size: 0.76rem;
+}
+
+@media (max-width: 640px) {
+  .physics-section {
+    padding: 20px 0 26px;
+  }
+
+  .physics-section h1 {
+    overflow-wrap: normal;
+  }
+
+  .equation {
+    justify-content: flex-start;
+    font-size: 1.28rem;
+  }
+}
+
